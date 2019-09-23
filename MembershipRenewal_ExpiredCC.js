@@ -37,6 +37,6 @@ describe('Expired CC', function() {
     await driver.findElement(By.id("CVN")).click()
     await driver.findElement(By.id("CVN")).sendKeys("123")
     await driver.findElement(By.css(".rsform-submit-button")).click()
-    await driver.wait(until.elementLocated(By.css(".toast-error")), 20000)
+    await driver.wait(until.elementLocated(By.css(".toast-error")), 30000)
   })
 })
