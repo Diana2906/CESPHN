@@ -3,7 +3,7 @@ const { Builder, By, Key, until } = require('selenium-webdriver')
 const assert = require('assert')
 
 describe('Valid CC (Allied Health Provider)', function() {
-  this.timeout(30000)
+  this.timeout(50000)
   let driver
   let vars
   beforeEach(async function() {
@@ -15,7 +15,6 @@ describe('Valid CC (Allied Health Provider)', function() {
   })
   it('Valid CC (Allied Health Provider)', async function() {
     await driver.get("https://dev-cesphn.cs115.force.com/apex/MembershipSignUp")
-    await driver.findElement(By.id("type")).click()
     {
       const dropdown = await driver.findElement(By.id("type"))
       await dropdown.findElement(By.css("*[value='Allied Health Provider - Medicare Approved']")).click()
@@ -46,16 +45,12 @@ describe('Valid CC (Allied Health Provider)', function() {
     await driver.findElement(By.id("mailingPostalCode")).sendKeys("193847383036")
     await driver.findElement(By.id("mobilePhone")).sendKeys("1237329204")
     await driver.findElement(By.css(".row:nth-child(6) > .col-sm-6:nth-child(1)")).click()
-    await driver.findElement(By.id("cardNumber")).click()
     await driver.findElement(By.id("cardNumber")).sendKeys("4444 3333 2222 1111")
-    await driver.findElement(By.id("customerName")).click()
     await driver.findElement(By.id("customerName")).sendKeys("selenium")
-    await driver.findElement(By.id("Expiry Month")).click()
     {
       const dropdown = await driver.findElement(By.id("Expiry Month"))
       await dropdown.findElement(By.css("*[value='08']")).click()
     }
-    await driver.findElement(By.id("Expiry Year")).click()
     {
       const dropdown = await driver.findElement(By.id("Expiry Year"))
       await dropdown.findElement(By.css("*[value='2032']")).click()
@@ -63,6 +58,6 @@ describe('Valid CC (Allied Health Provider)', function() {
     await driver.findElement(By.id("CVN")).click()
     await driver.findElement(By.id("CVN")).sendKeys("123")
     await driver.findElement(By.css(".rsform-submit-button")).click()
-    await driver.wait(until.elementLocated(By.css(".toast-success")), 20000)
+    await driver.wait(until.elementLocated(By.css(".toast-success")), 35000)
   })
 })
