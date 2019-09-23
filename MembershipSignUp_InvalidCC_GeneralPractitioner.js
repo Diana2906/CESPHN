@@ -15,12 +15,10 @@ describe('Invalid CC (General Practitioner)', function() {
   })
   it('Invalid CC (General Practitioner)', async function() {
     await driver.get("https://dev-cesphn.cs115.force.com/apex/MembershipSignUp")
-    await driver.findElement(By.id("type")).click()
     {
       const dropdown = await driver.findElement(By.id("type"))
       await dropdown.findElement(By.css("*[value='General Practitioner']")).click()
     }
-    await driver.findElement(By.id("product")).click()
     {
       const dropdown = await driver.findElement(By.id("product"))
       await dropdown.findElement(By.css("*[label='Default Product']")).click()
@@ -53,6 +51,6 @@ describe('Invalid CC (General Practitioner)', function() {
     }
     await driver.findElement(By.id("CVN")).sendKeys("123")
     await driver.findElement(By.css(".rsform-submit-button")).click()
-    await driver.wait(until.elementLocated(By.css(".toast-error")), 20000)
+    await driver.wait(until.elementLocated(By.css(".toast-error")), 30000)
   })
 })
