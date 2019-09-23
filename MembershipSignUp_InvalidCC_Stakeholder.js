@@ -15,12 +15,10 @@ describe('Inalid CC (Stakeholder)', function() {
   })
   it('Inalid CC (Stakeholder)', async function() {
     await driver.get("https://dev-cesphn.cs115.force.com/apex/MembershipSignUp")
-    await driver.findElement(By.id("type")).click()
     {
       const dropdown = await driver.findElement(By.id("type"))
       await dropdown.findElement(By.css("*[value='Stakeholder']")).click()
     }
-    await driver.findElement(By.id("product")).click()
     {
       const dropdown = await driver.findElement(By.id("product"))
       await dropdown.findElement(By.css("*[label='Default Product']")).click()
